@@ -17,7 +17,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages={"com.niit.collabpro"} ,excludeFilters = { @Filter(type = FilterType.ANNOTATION, value = Configuration.class) })
+@ComponentScan(basePackages={"com.niit"} ,excludeFilters = { @Filter(type = FilterType.ANNOTATION, value = Configuration.class) })
 @EnableTransactionManagement
 
 public class ApplicationContextConfig 
