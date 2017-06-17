@@ -2,6 +2,8 @@ package com.niit.collabpro.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +30,18 @@ public class UserDomainImpl implements UserDomainInterface
 	
 	
 	//add the user info in the database
-	public void addUser(User_Domain user)
+	public boolean addUser(User_Domain user)
 	{
+		try{
 		System.out.println("i am in add user dao method");
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 		System.out.println("successfully data add");	
+		
+		return true;
+		}catch(Exception b)
+		{System.out.println(b);
+			return false;
+		}
 		
 	}
 
@@ -60,5 +69,26 @@ public class UserDomainImpl implements UserDomainInterface
 
 		
 	}
+
+
+
+
+	public boolean isExistingUser(User_Domain user) {
+		User_Domain u=null;
+		try {
+		u=getUsername(user.getUname());
+		}
+		catch(NoResultException nre)
+		{
+			
+		}
+		if(u!=null)
+		{
+			return true;
+		}
+		else
+			return false;
+
+			}
 
 }
