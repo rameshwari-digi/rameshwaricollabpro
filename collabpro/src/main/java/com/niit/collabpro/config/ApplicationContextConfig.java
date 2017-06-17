@@ -44,13 +44,8 @@ public class ApplicationContextConfig
 		LocalSessionFactoryBean sessionFactory=new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setHibernateProperties(getHibernateProperties());
-		sessionFactory.setPackagesToScan(new String[] {"com.niit.domain"});
-		/*
-		LocalSessionFactoryBuilder sessionFactory=new LocalSessionFactoryBuilder(dataSource);
-		sessionFactory.setProperties(getHibernateProperties());
-		sessionFactory.scanPackages("com.niit.domain");
-		return sessionFactory..buildSessionFactory();
-		*/
+		sessionFactory.setPackagesToScan(new String[] {"com.niit.collabpro.model"});
+		
 		
 		
 		return sessionFactory;
