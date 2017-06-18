@@ -49,6 +49,22 @@ public class UserRestController
     }
 	
 
+	@PostMapping("/login")
+	public ResponseEntity<User_Domain> loginemail(@RequestBody User_Domain user)
+	{
+		System.out.println("get the email id :"+user.getUname());
+		
+		User_Domain usere = userDao.getUsername(user.getUname(),user.getPassword());
+		if(usere!=null)
+		{
+		return new ResponseEntity<User_Domain>(usere,HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<User_Domain>(user,HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
 
 	
 	

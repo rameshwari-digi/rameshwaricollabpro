@@ -29,9 +29,10 @@ public class UserTest {
 	public void userTest()
 	{
 		user_domain=new User_Domain();
-		user_domain.setUname("ebinezer");
-		user_domain.setEmailid("ebi@gmail.com");
-		user_domain.setPassword("12345678");
+		user_domain.setUname("Abdul");
+		user_domain.setEmailid("Abdul@gmail.com");
+		user_domain.setPassword("Abdul1@s");
+		user_domain.setContactno("6789012345");
 		user_domain.setRole("User");
 		
 		assertEquals("success",true,userDao.addUser(user_domain));

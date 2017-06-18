@@ -55,9 +55,9 @@ public class UserDomainImpl implements UserDomainInterface
 	}
 
 	
-	public User_Domain getUsername(String username) {
+	public User_Domain getUsername(String username, String password) {
 		Session session = sessionFactory.openSession();
-		User_Domain user = (User_Domain)session.createQuery("from User_Domain where uname='"+username+"'").getSingleResult();
+		User_Domain user = (User_Domain)session.createQuery("from User_Domain where uname='"+username+"'and password='"+password+"'").getSingleResult();
 		return user;
 
 	}
@@ -70,13 +70,21 @@ public class UserDomainImpl implements UserDomainInterface
 		
 	}
 
+	public User_Domain getUsernamed(String username)
+	{
+		Session session=sessionFactory.getCurrentSession();
+		User_Domain user=(User_Domain)session.createQuery("from User_Domain where uname='"+username+"'").getSingleResult();
+		
+		return user;
 
+	}
+	
 
 
 	public boolean isExistingUser(User_Domain user) {
 		User_Domain u=null;
 		try {
-		u=getUsername(user.getUname());
+		u=getUsernamed(user.getUname());
 		}
 		catch(NoResultException nre)
 		{

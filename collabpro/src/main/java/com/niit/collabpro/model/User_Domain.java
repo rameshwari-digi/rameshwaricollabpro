@@ -21,6 +21,7 @@ public class User_Domain
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int userid;
 	@Size(min=5, max=10, message="Your name should be between 5 - 10 characters.")
+	@Pattern(regexp="[a-zA-Z]{5,10}")
 	private String uname;
 	@Column(unique=true)
 	@Pattern(regexp=".+@.+\\..+", message="Wrong email!")
@@ -36,6 +37,7 @@ public class User_Domain
 	    @Pattern(regexp = "(?=\\S+$)", message = "Password must contain no whitespace.")
 	})
 	*/
+	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8}")
 	private String password;
 	
 	private String role;

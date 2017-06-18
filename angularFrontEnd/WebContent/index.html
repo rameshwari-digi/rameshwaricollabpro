@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApplication">
+<head>
+  <title>Collaborative Portal Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+  <script type="text/javascript" src="application.js"></script>
+  
+  <script type="text/javascript" src="UserInfo/logincontrol.js"></script>
+  <link href="./style/login.css" rel="stylesheet"/>
+  <script type="text/javascript" src="UserInfo/usercreate.js"></script>
+  
+  <script src="UserInfo/regvalidation.js"></script>
+  
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" ng-hide="Userrole=='User'" ng-controller='HomeController'>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CollborationPortal</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+         </li>
+      <li><a href="#">AboutUs</a></li>
+    </ul>
+    <div ng-hide="authenticated">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+    </ul>
+    </div>
+    <div ng-show="authenticated">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href=""><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+     
+    </ul>
+    </div>
+  </div>
+</nav>
+  
+<div ng-include="'./UserInfo/Login.html'" ng-controller='LoginController as logCtrl'></div>
+
+   
+
+
+
+
+
+
+<ng-view>
+
+
+</ng-view>
+</body>
+</html>

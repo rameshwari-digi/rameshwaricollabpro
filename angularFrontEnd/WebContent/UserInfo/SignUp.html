@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Registration form</h2>
+ <span ng-show="regCtrl.regfail">Registration failed try again</span>
+  <form  name="regForm" id="registrationForm" ng-submit="regForm.$valid && regCtrl.regUser() ">
+    <div class="form-group">
+      <label for="uname">UserName:</label>
+      <input type="text" class="form-control" id="uname" ng-model="regCtrl.user.uname" placeholder="Enter user name" name="uname" required="true" pattern="[a-zA-Z]{5,10}">
+    <span ng-show="regForm.uname.$invalid">Enter Usern name</span>
+    </div>
+     <div class="form-group">
+      <label for="emailid">Email:</label>
+      <input type="email" class="form-control" id="emailid" ng-model="regCtrl.user.emailid" placeholder="Enter email" name="emailid" required="true" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+       <span ng-show="regForm.emailid.$invalid">Enter a valid email id</span>
+    </div>
+    <div class="form-group">
+      <label for="passwordd">Password:</label>
+      <input type="password" class="form-control" ng-model="regCtrl.user.password" id="pwd" placeholder="Enter password" name="password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8}">
+      <span ng-show="regForm.password.$invalid">One Capital,One Small,One digit,One Special Char</span>
+    </div>
+    <div class="form-group">
+      <label for="contactno">Contact NO:</label>
+      <input type="text" class="form-control" ng-model="regCtrl.user.contactno" id="contactno" placeholder="Enter Contact Number" name="contactno" required="true" pattern="[0-9]{10}">
+      <span ng-show="regForm.contactno.$invalid">Enter a valid mobile number</span>
+    </div>
+     <div class="form-group">
+      <label for="role">As a:</label>
+      <input type="hidden"  name="role" ng-model="regCtrl.user.role" value='User' >
+       
+      
+    </div>
+    
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
